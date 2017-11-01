@@ -1,17 +1,20 @@
-/* Contador de palavras
- *
- * Este programa recebera uma serie de caracteres representando palavras em sua
- * entrada. Ao receber um caractere fim de linha ('\n'), deve imprimir na tela o
- * numero de palavras separadas que recebeu e, apos, encerrar.
- */
-
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-
-  int x, y;
-
-  scanf("%d %d\n", &x, &y);
-  printf("%d\n", x + 200);
-  return 0;
+int main () {
+	FILE *pipe;
+	pipe = popen("sort -n -r", "w");
+	
+	while (int x != -1) {
+		scanf ("%d", &x);         
+		
+		if (x < 2) fprintf(pipe,"%d\n", x);
+	  else if (x > 4) {
+			for (int i = 2; i <= x/2; i++) {
+				if (x % i == 0) fprintf(pipe,"%d\n", x), break;
+			}
+	  }
+  }
+	pclose(pipe);
+	return 0;
 }
