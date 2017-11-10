@@ -14,7 +14,7 @@ int main () {
         } else if (input >= 4) {
             for (int i = 2; i <= input/2; i++) {
                 if (input % i == 0) {
-                    fprintf(primesort,"%d\n", input)
+                    fprintf(primesort,"%d\n", input);
                     break;
                 }
             }
